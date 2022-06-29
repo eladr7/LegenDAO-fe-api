@@ -3,7 +3,9 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const httpPort = 3001;
+const config = require("../config");
+
+const httpPort = config.port;
 
 const httpServer = () => {
   const app = express();
