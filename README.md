@@ -9,12 +9,16 @@ It's purpose is to be run by an Azure Web App service.
 
 ## Example of usage
     After making your changes, you can test them locally by:
-      1. Building the docker image file: docker build -t <Login server>/<Repository name (image name)>:latest .
-         * <Login server> is taken from Azure::ContainerRegistry::<your container instance>::Access Keys::Login server
-          - example: docker build -t feapi.azurecr.io/legendao-fe-api:latest .
+      1. Building the docker image file: 
+         docker build -t <Login server>/<Repository name (image name)>:latest .
+         * <Login server> is taken from
+           Azure::ContainerRegistry::<your container instance>::Access Keys::Login server
+        - example: docker build -t feapi.azurecr.io/legendao-fe-api:latest .
 
       2. docker run -d -p 8080:<config.js port> <Login server>/<Repository name (image name)>
           - example: docker run -d -p 8080:3001 feapi.azurecr.io/legendao-fe-api
+          - Aleternatively, you can just run: 'docker-compose up -d' from the root folder and it will
+            run docker locally. (Terminate with 'docker-compose down')
 
       3. Go to your browser to test it: http://localhost:8080/token/info
 
@@ -22,5 +26,6 @@ It's purpose is to be run by an Azure Web App service.
     In order to upload your changes to the Azure Web App:
       1. Login: docker login <Login server>
           - example: docker login feapi.azurecr.io
-          * The user name and password are taken from Azure::ContainerRegistry::<your container instance>::Access Keys...
+          * The user name and password are taken from
+            Azure::ContainerRegistry::<your container instance>::Access Keys...
 
